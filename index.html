@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,7 +36,15 @@
     </noscript>
   </head>
   <body id="top">
-    <header></header>
+
+    <header>  
+    </header>
+    <audio src="music/Hal.mp3" id="my_audio" loop="loop"></audio>
+  <script type="text/javascript">
+    window.onload=function(){
+      document.getElementById("my_audio").play();
+    }
+  </script>
     <div class="page-content">
       <div class="div">
 <div class="ww-home-page" id="home">
@@ -232,7 +241,7 @@
     <div class="row ww-rsvp-form">
       <div class="col-md-10">
         <div class="card-body">
-          <form action="https://formspree.io/example@email.com" method="POST">
+          <form action="#" id="formulario">
             <div class="row">
               <div class="col md-6 pb-3">
                 <div class="form-group">
@@ -280,6 +289,7 @@
             </div>
             <div class="row">
               <div class="col text-center">
+                <button id="submit" type="submit" class="boton"><i class="fab fa-whatsapp"></i> Enviar WhatsApp</button>
                 <button class="btn btn-primary btn-submit" type="submit">Send</button>
               </div>
             </div>
@@ -302,6 +312,43 @@
     <script src="scripts/aos.js?ver=1.1.0"></script>
     <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
-    <audio src="music/Hal.mp3" autoplay></audio>
+    <script>
+      function isMobile() {
+    if (sessionStorage.desktop)
+        return false;
+    else if (localStorage.mobile)
+        return true;
+    var mobile = ['iphone', 'ipad', 'android', 'blackberry', 'nokia', 'opera mini', 'windows mobile', 'windows phone', 'iemobile'];
+    for (var i in mobile)
+        if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return true;
+    return false;
+}
+
+const formulario = document.querySelector('#formulario');
+const buttonSubmit = document.querySelector('#submit');
+const urlDesktop = 'https://web.whatsapp.com/';
+const urlMobile = 'whatsapp://';
+const telefono = '5217444656846';
+
+formulario.addEventListener('submit', (event) => {
+    event.preventDefault()
+    buttonSubmit.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>'
+    buttonSubmit.disabled = true
+    setTimeout(() => {
+        let nombre = document.querySelector('#name-input').value
+        let invitados = document.querySelector('#guest-input').value
+        let email = document.querySelector('#email-input').value
+        let mensaje = 'send?phone=' + telefono + '¿Cual es tu nombre?*%0A' + nombre + '%0A*¿Cuántos invitados llevaras?*%0A' + invitados + '%0A*¿Cuál es tu correo electrónico?*%0A' + email + ''
+        if(isMobile()) {
+            window.open(urlMobile + mensaje, '_blank')
+        }else{
+            window.open(urlDesktop + mensaje, '_blank')
+        }
+        buttonSubmit.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar WhatsApp'
+        buttonSubmit.disabled = false
+    }, 3000);
+});
+    </script>
   </body>
+ 
 </html>
