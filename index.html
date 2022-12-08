@@ -328,7 +328,7 @@ const formulario = document.querySelector('#formulario');
 const buttonSubmit = document.querySelector('#submit');
 const urlDesktop = 'https://web.whatsapp.com/';
 const urlMobile = 'whatsapp://';
-const telefono = '5217444656846';
+const telefono = '527471262610';
 
 formulario.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -338,7 +338,7 @@ formulario.addEventListener('submit', (event) => {
         let nombre = document.querySelector('#name-input').value
         let invitados = document.querySelector('#guest-input').value
         let email = document.querySelector('#email-input').value
-        let mensaje = 'send?phone=' + telefono + '¿Cual es tu nombre?*%0A' + nombre + '%0A*¿Cuántos invitados llevaras?*%0A' + invitados + '%0A*¿Cuál es tu correo electrónico?*%0A' + email + ''
+        let mensaje = 'send?phone=' + telefono + '&text=¿Nombre:?*%0A' + nombre + '%0A*¿Cuántos invitados llevaras?*%0A' + invitados + '%0A*¿Cuál es tu correo electrónico?*%0A' + email + ''
         if(isMobile()) {
             window.open(urlMobile + mensaje, '_blank')
         }else{
