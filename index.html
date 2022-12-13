@@ -139,13 +139,9 @@
                   data-aos="fade-up-right" data-aos-duration="1000" /></div>
             </div>
           </div>
-        </div>
-        <div class="ww-section" id="tiempo">
-          <div class="powr-countdown-timer" id="16fbc800_1670620954"></div>
+          <div data-aos="zoom-out" data-aos-duration="1000" class="powr-countdown-timer" id="16fbc800_1670620954"></div>
         <script src="https://www.powr.io/powr.js?platform=html"></script>
        
-        </div>
-        
         <div class="ww-section" id="mesaRegalos">
 
           <h2 class="h1 text-center pt-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000" >Mesa de Regalos</h2>
@@ -258,8 +254,10 @@
                     </div>
                     <div class="row">
                       <div class="col text-center">
-                        <button id="submit" type="submit" class="btn btn-primary btn-submit" style="background: #49050a"><i class="fab fa-whatsapp"></i> Confirmar por WhatsApp</button>
-                        <a class="btn btn-primary btn-submit" href="mailto:nettestd@gmail.com?subject=Confirmacion%20de%20Asistencia%20">Confirmar por email</a>
+                   <!-- <button id="submit" type="submit" class="btn btn-primary btn-submit" style="background: #49050a"><i class="fab fa-whatsapp"></i> Confirmar por WhatsApp</button> -->     
+                        <button id="submit" class="btn btn-primary btn-submit" style="background: #49050a" onclick="sendWhats()"><i class="fab fa-whatsapp"></i> Confirmar por WhatsApp</button>
+                    <!--<a class="btn btn-primary btn-submit" href="mailto:nettestd@gmail.com?subject=Confirmacion%20de%20Asistencia%20" onclick="enviarCorreo()">Confirmar por email</a> -->   
+                        <button class="btn btn-primary btn-submit" onclick="enviarCorreo()">Confirmar por email</button> 
                       </div>
                     </div>
                   </form>
@@ -299,8 +297,8 @@
       const urlMobile = 'whatsapp://';
       const telefono = '7471262610';
 
-      formulario.addEventListener('submit', (event) => {
-        event.preventDefault()
+      function sendWhats(){
+        
         buttonSubmit.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>'
         buttonSubmit.disabled = true
         setTimeout(() => {
@@ -317,10 +315,15 @@
           buttonSubmit.innerHTML = '<i class="fab fa-whatsapp"></i> Enviar WhatsApp'
           buttonSubmit.disabled = false
         }, 3000);
-      });
+      }
 
       function enviarCorreo(){
-        alert(nombre)
+        let nombre = document.querySelector('#name-input').value
+          let invitados = document.querySelector('#guest-input').value
+          let mensajeEnviado = document.querySelector('#message-input').value
+          let asistira = document.querySelector('#events-input').value
+          let mensaje = 'send?phone=' + telefono + '&text=¿Nombre:? %0A' + nombre + ' %0A ¿Asistira? %0A' + asistira + ' %0A ¿Cuántos invitados llevaras? %0A' + invitados + ' %0A ¿Mensaje para los novios? %0A' + mensajeEnviado;
+        window = window.open("mailto:nettestd@gmail.com?subject=Confirmacion%20de%20Asistencia%20&body="+mensaje, 'emailWindow')
       }
     </script>
 </body>
