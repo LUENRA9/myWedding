@@ -322,7 +322,7 @@
           let invitados = document.querySelector('#guest-input').value
           let mensajeEnviado = document.querySelector('#message-input').value
           let asistira = document.querySelector('#events-input').value
-          let mensaje = 'send?phone=' + telefono + '&text=¿Nombre:? %0A' + nombre + ' %0A ¿Asistira? %0A' + asistira + ' %0A ¿Cuántos invitados llevaras? %0A' + invitados + ' %0A ¿Mensaje para los novios? %0A' + mensajeEnviado;
+          let mensaje = '¿Nombre:? %0A' + nombre + ' %0A ¿Asistira? %0A' + asistira + ' %0A ¿Cuántos invitados llevaras? %0A' + invitados + ' %0A ¿Mensaje para los novios? %0A' + mensajeEnviado;
         window = window.open("mailto:nettestd@gmail.com?subject=Confirmacion%20de%20Asistencia%20&body="+mensaje, 'emailWindow')
       }
     </script>
