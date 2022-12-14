@@ -142,6 +142,7 @@
               <div class="my-3"><img class="img-fluid" src="images/recepcion.jpg" alt="Reception"
                   data-aos="fade-up-right" data-aos-duration="1000" /></div>
             </div>
+            <input type="button" onclick="getParam()" value="TEST">
           </div>
           <div data-aos="zoom-out" data-aos-duration="1000" class="powr-countdown-timer" id="16fbc800_1670620954"></div>
           <script src="https://www.powr.io/powr.js?platform=html"></script>
@@ -212,69 +213,14 @@
           <div class="ww-section ww-rsvp-detail text-black-70" id="asistencia">
             <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
               <div class="col text-center">
-                <h2 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">¿Asistiras a nuestra boda?
-                </h2>
-              </div>
-              <div class="row ww-rsvp-form">
-                <div class="col-md-10">
-                  <div class="card-body">
-                    <form action="#" id="formulario">
-                      <div class="row">
-                        <div class="col md-6 pb-3">
-                          <div class="form-group">
-                            <label for="name-input">Nombre*</label>
-                            <input class="form-control" id="name-input" type="text" name="name" required="required" />
-                          </div>
-                        </div>
+                <h2 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">Invitación para: </h2>
+                <h3 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">Familia Ramos Evangelista</h3>
 
-                      </div>
-                      <div class="row">
-                        <div class="col-md-8 col-sm-4 pb-3">
-                          <div class="form-group">
-                            <label for="guest-input">¿Cuántas personas te acompañaran?
-                              Incluyéndote a ti mismo :)</label>
-                            <select class="form-control" id="guest-input" name="guest">
-                              <option value="1">Uno</option>
-                              <option value="2">Dos</option>
-                              <option value="3">Tres</option>
-                              <option value="4">Cuatro</option>
-                              <option value="4">Cinco</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-md-4  pb-3">
-                          <div class="form-group">
-                            <label for="events-input">Asistiras?</label>
-                            <select class="form-control" id="events-input" name="events">
-                              <option value="Si">Si</option>
-                              <option value="No">No</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label for="message-input">¿Te gustaria dejarnos algun mensaje?</label>
-                            <textarea class="form-control" id="message-input" name="message" rows="4"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col text-center">
-                          <!-- <button id="submit" type="submit" class="btn btn-primary btn-submit" style="background: #49050a"><i class="fab fa-whatsapp"></i> Confirmar por WhatsApp</button> -->
-                          <button id="submit" type="submit" class="btn btn-primary btn-submit mt-3 "
-                            style="background: #49050a" formaction="javascript:sendWhats()"><i
-                              class="fab fa-whatsapp"></i> Confirmar por WhatsApp</button>
-                          <!--<a class="btn btn-primary btn-submit" href="mailto:nettestd@gmail.com?subject=Confirmacion%20de%20Asistencia%20" onclick="enviarCorreo()">Confirmar por email</a> -->
-                          <button type="submit" class="btn btn-primary btn-submit mt-3 ml-4"
-                            formaction="javascript:enviarCorreo()">Confirmar por email</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
+                <p class="text-center pt-3" data-aos="zoom-in-down" data-aos-duration="1800"   style="font-size:1.8rem;color:#501415;">Pase para: </p>
+
+                <p id="Pases" data-aos="zoom-in-down" data-aos-duration="1800"   style="font-size:1.8rem;color:#84302c;">0</p>
               </div>
+              
             </div>
           </div>
           <div class="ww-footer bg-light">
@@ -337,6 +283,25 @@
           let asistira = document.querySelector('#events-input').value
           let mensaje = `¿Nombre:?%0A%20${nombre}%20 %0A Asistira?%0A%20${asistira}%20 %0A Cuantos%20invitados%20llevaras?%0A%20${invitados}%20 %0A Mensaje%20para%20los%20novios?%0A%20 ${mensajeEnviado}`;
           window = window.open(`mailto:nettestd@gmail.com?subject=Confirmacion%20de%20Asistencia%20&body=${mensaje}`, 'emailWindow')
+        }
+        function getParam(){
+
+          familias=[["Familia Ramos Evangelista"]["5 Personas"],["Familia Martinez Mejia"]["5 personas"]]
+          const queryString = window.location.search;
+  
+          const urlParams = new URLSearchParams(queryString);
+          const idFamilia = urlParams.get('id');
+          
+          console.log(familias[0],[0]);
+          document.getElementById("Pases").innerHTML = "4 personas";
+          
+          
+
+
+        
+
+
+        
         }
       </script>
 </body>

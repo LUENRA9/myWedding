@@ -124,6 +124,7 @@ body {
 .ww-rsvp-detail {
   background: url("../images/319_internal_overlay.png") no-repeat top center;
   background-size: contain;
+  
   min-height: 500px;
   position: relative; }
   .ww-rsvp-detail .ww-rsvp-form {
